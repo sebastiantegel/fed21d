@@ -1,0 +1,33 @@
+<div>
+    <!-- <p *ngIf="!shop.done">{{ shop.text }}</p> -->
+
+    <!-- <p *ngFor="let todo of todos; let i = index">
+        {{i + 1}}. {{ todo.text }}
+    </p> -->
+
+    <ul>
+        <li *ngFor="let todo of todos; let i = index" 
+            [class.done]="todo.done" 
+            (click)="toggleTodo(i)">
+            {{ todo.text }}
+        </li>
+    </ul>
+
+    <ul>
+        <li *ngFor="let todo of todos" 
+            [class.done]="todo.done" 
+            (click)="toggleTodoObject(todo)">
+            {{ todo.text }}
+        </li>
+    </ul>
+
+    <img [src]="imageUrl" />
+
+    <button [disabled]="isDisabled" (click)="toggle()">Spara</button>
+
+    <input type="text" placeholder="Förnamn" #fname (keyup)="handleChange(fname.value)" />
+
+    {{ firstname }}
+
+    <button (click)="search()">Sök</button>
+</div>
