@@ -1,0 +1,12 @@
+<!-- Visa AddTodo-komponenten 
+(saveTodo) är en händelse som finns i AddTodo-komponenten
+(saveTodo) kommer att köra funktionen create i denna komponent
+create-funktionen kommer att ta emot det som skickas med i händelsen (texten från textrutan)
+-->
+<app-addtodo (saveTodo)="create($event)"></app-addtodo>
+
+<!-- Visa så många todo-komponenter som vi har objekt i listan todos
+    [todo] betyder att det finns en egenskap i todo-komponenten som heter todo
+    som vill ha ett värde från denna komponent.
+-->
+<app-todo *ngFor="let t of todos" [todo]="t"></app-todo>
