@@ -1,0 +1,15 @@
+<h3>
+  {{todo.text | lowercase}}
+</h3>
+
+<p>
+  {{ todo.created | date: 'yyyy-MM-dd HH:mm' }}
+</p>
+
+<p>
+  {{ todo | json }}
+</p>
+
+<h1>
+  {{todo.text | upperlast}}
+</h1>
