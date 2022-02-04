@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IHighlightConfig } from 'src/app/models/IHighLightConfig';
 import { Todo } from 'src/app/models/Todo';
 
 @Component({
@@ -8,7 +9,7 @@ import { Todo } from 'src/app/models/Todo';
 })
 export class TodoComponent implements OnInit {
   @Input() todo: Todo = new Todo('');
-  animationSpeed: number = 5;
+  animationSpeed: IHighlightConfig = { speed: 5, color: 'pink' };
 
   constructor() {}
 
