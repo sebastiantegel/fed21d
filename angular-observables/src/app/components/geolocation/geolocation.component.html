@@ -1,0 +1,9 @@
+<button (click)="startGettingPositions()">Starta hämta positioner</button>
+<button (click)="stopGettingPositions()">Sluta hämta positioner</button>
+
+<ul>
+    <li *ngFor="let p of positions">
+        lat: {{p.coords.latitude}}
+        lng: {{p.coords.longitude}}
+    </li>
+</ul>
