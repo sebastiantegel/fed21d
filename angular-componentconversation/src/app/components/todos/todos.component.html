@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let t of todos; let i = index">
+        {{t.text}}
+        <button (click)="remove(i)">Ta bort</button>
+    </li>
+</ul>
