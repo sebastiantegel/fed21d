@@ -1,0 +1,10 @@
+<input type="text" #searchTerm (input)="search(searchTerm.value)" />
+
+<div *ngFor="let m of movies | async">
+    <h3>{{m.Title}}</h3>
+    <img [src]="m.Poster" />
+</div>
+
+<div *ngIf="isLoading">
+    Laddar...
+</div>
