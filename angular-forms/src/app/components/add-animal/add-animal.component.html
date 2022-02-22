@@ -1,0 +1,36 @@
+<form [formGroup]="animalForm" (ngSubmit)="handleSubmit()">
+    <label>Namn</label>
+    <input type="text" formControlName="name" />
+    <div *ngIf="animalForm.get('name')?.invalid && (animalForm.get('name')?.touched || animalForm.get('name')?.dirty)">
+        
+        <div *ngIf="animalForm.get('name')?.errors?.['required']">
+            Detta fält är obligatoriskt
+        </div>
+
+        <div *ngIf="animalForm.get('name')?.errors?.['minlength']">
+            Namn måste innehålla minst två tecken
+        </div>
+
+    </div>
+
+    <label>Typ</label>
+    <input type="text" formControlName="type" />
+
+    <label>Ålder</label>
+    <input type="number" formControlName="age" />
+
+    <div formArrayName="nickNames">
+        <button (click)="addNickname()">Lägg till</button>
+
+        <div *ngFor="let nick of nicknames.controls; let i = index">
+            <label>Smeknamn: </label>
+            <input type="text" [formControlName]="i" />
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="!animalForm.valid">Spara</button>
+</form>
+
+<p>
+    {{ animalForm.value | json }}
+</p>

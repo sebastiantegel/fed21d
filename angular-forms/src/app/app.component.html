@@ -1,0 +1,14 @@
+<label for="todo">Todo: </label>
+<input type="text" id="todo" [formControl]="text" />
+
+<p>
+    {{ text.value }}
+</p>
+
+<div>
+    <app-add-user></app-add-user>
+</div>
+
+<div>
+    <app-add-animal></app-add-animal>
+</div>

@@ -1,0 +1,16 @@
+<form [formGroup]="userForm" (ngSubmit)="handleSubmit()">
+    <label for="firstname">Förnamn: </label>
+    <input type="text" id="firstname" formControlName="firstName" />
+
+    <label for="lastname">Efternamn: </label>
+    <input type="text" id="lastname" formControlName="lastName" />
+
+    <label for="age">Age: </label>
+    <input type="number" id="age" formControlName="age" />
+
+    <button type="submit">Spara</button>
+</form>
+
+<p>
+    {{ userForm.value | json }}
+</p>
