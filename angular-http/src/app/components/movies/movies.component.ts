@@ -14,6 +14,7 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void {
     this.service.movies$.subscribe((dataFromService: IMovie[]) => {
       this.movies = dataFromService;
+      console.log('Data from observable:', this.movies);
     });
 
     this.service.getMovies();

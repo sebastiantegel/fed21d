@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, Subject } from 'rxjs';
+import { map, Observable, of, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IMovie } from '../models/IMovie';
 import { IOmdbResponse } from '../models/IOmdbResponse';
@@ -14,11 +14,11 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
-  getMovies() {
+  getMovies(): void {
     this.http
       .get<IOmdbResponse>(environment.omdbUrl + 's=star')
       .subscribe((dataFromOmdb) => {
-        console.log(dataFromOmdb.Search);
+        console.log('Data from omdb:', dataFromOmdb.Search);
         this.movies.next(dataFromOmdb.Search);
       });
   }
