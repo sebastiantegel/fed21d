@@ -7,15 +7,20 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Movies } from "./components/Movies";
 import { About } from "./components/About";
 import { NotFound } from "./components/NotFound";
+import { Layout } from "./components/Layout";
+import { ShowMovie } from "./components/ShowMovie";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<App />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/movie/:id" element={<ShowMovie />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

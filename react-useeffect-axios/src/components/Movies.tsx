@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { IMovie } from "../models/IMovie";
 import { Movie } from "../models/Movie";
 
@@ -35,6 +36,15 @@ export const Movies = () => {
 
   //   console.log(movies);
 
+  let moviesHtml = movies.map((movie: Movie) => {
+    let movieLink = `/movie/${movie.id}`;
+    return (
+      <div key={movie.id}>
+        <Link to={movieLink}>{movie.title}</Link>
+      </div>
+    );
+  });
+
   return (
     <>
       <div>
@@ -47,6 +57,8 @@ export const Movies = () => {
       >
         Testa
       </button>
+
+      {moviesHtml}
     </>
   );
 };
